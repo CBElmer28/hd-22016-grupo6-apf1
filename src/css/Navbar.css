@@ -1,0 +1,52 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  padding: 20px 80px; /* Más padding */
+  color: white;
+  font-family: 'Arial', sans-serif;
+  width: 100%; /* Asegura que ocupe todo el ancho */
+  box-sizing: border-box; /* Para que el padding no cause scroll horizontal */
+  height: 80px; /* Más altura */
+}
+
+.navbar-left a,
+.navbar-right a {
+  color: white;
+  margin: 0 20px; /* Más separación entre links */
+  text-decoration: none;
+  font-size: 16px; /* Letra más grande */
+}
+
+.navbar-left,
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-center {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-logo {
+  height: 75px;
+}
+
+.icon {
+  color: white;
+  margin: 0 12px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+      flex-direction: column;
+      height: auto;
+      padding: 15px 20px;
+  }
+}
