@@ -1,6 +1,7 @@
 import React from 'react';
 import '../css/Navbar.css';
 import logo from '../assets/logo2.png';
+import { FaSearch, FaStar, FaUser } from 'react-icons/fa';
 
 const Navbar = () => {
   return (
@@ -15,11 +16,12 @@ const Navbar = () => {
         <img src={logo} alt="Mercedes Logo" className="navbar-logo" />
       </div>
       <div className="navbar-right">
-        <a href="#">Proveedor</a>
-        <i className="fas fa-search icon"></i>
-        <i className="fas fa-star icon"></i>
-        <i className="fas fa-user-circle icon"></i>
-        <a href="#">Iniciar sesión</a>
+        <a href="#">Proveedor...</a>
+        <FaSearch className="icon" />
+        <FaStar className="icon" />
+        <a href="#" className="login-link">
+          <FaUser className="icon" /> Iniciar sesión
+        </a>
       </div>
     </nav>
   );
