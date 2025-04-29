@@ -2,12 +2,13 @@ import React from 'react';
 import { Container, Card, Form, Row, Col, InputGroup, Button, Image } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import modelocompra from '../../assets/modelocompra.jpg';
-import { GoogleMap, LoadScript } from '@react-google-maps/api';
+import Navbar from '../General/Navbar';
 import Footer from '../General/Footer';
 
 const MercedesSearchForm = () => {
   return (
     <>
+      <Navbar />
       <Container className="px-0 my-0">
         {/* Sección Promocional con texto superpuesto directamente sobre la imagen */}
         <Card
@@ -206,19 +207,18 @@ const MercedesSearchForm = () => {
           </Card.Footer>
         </Card>
 
-        <div classname="map-section">
-          <div classname="gmap-frame">
+        <div className="map-section">
+          <div className="gmap-frame">
             <iframe
               width="100%"
               height="600"
-              frameborder="0"
+              frameBorder="0"
               scrolling="no"
-              marginheight="0"
-              marginwidth="0"
+              marginHeight="0"
+              marginWidth="0"
+              title="Ubicación de Zentauri Quead en Google Maps"
               src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Av.%20Benavides%203900+(Zentauri%20Quead)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-            >
-              <a href="https://www.gps.ie/collections/personal-trackers/">Personal GPS</a>
-            </iframe>
+            />
           </div>
         </div>
       </Container>
@@ -227,16 +227,6 @@ const MercedesSearchForm = () => {
       <Footer />
     </>
   );
-};
-
-const mapContainerStyle = {
-  width: '100%',
-  height: '400px',
-};
-
-const defaultCenter = {
-  lat: 40.416775, // Ejemplo: coordenadas de Madrid
-  lng: -3.70379,
 };
 
 export default MercedesSearchForm;
