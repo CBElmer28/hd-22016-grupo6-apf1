@@ -134,6 +134,21 @@
   margin-top: 10px;
 }
 
+.icon-button {
+  background: none;
+  border: none;
+  padding: 0;
+  color: white; /* o el color que quieras para los íconos */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.icon-button .icon {
+  font-size: 20px; /* o el tamaño que quieras */
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .navbar {
