@@ -30,7 +30,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
       <div className="container-fluid">
         {/* Logo y hamburguesa */}
         <NavLink className="navbar-brand" to="/">
