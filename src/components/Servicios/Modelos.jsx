@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/Modelos.css';
+import '../../css/Modelos.css';
 import ClaseABerlina from '../../assets/modelos/ClaseABerlina.avif';
 import CLARojo from '../../assets/modelos/CLARojo.avif';
 import CLAVerde from '../../assets/modelos/CLAVerde.avif';
@@ -9,6 +9,13 @@ import ClaseEQSBerlina from '../../assets/modelos/ClaseEQSBerlina.avif';
 import ClaseEBerlina from '../../assets/modelos/ClaseEBerlina.avif';
 import ClaseS from '../../assets/modelos/ClaseS.avif';
 import ClaseSLarga from '../../assets/modelos/ClaseSLarga.avif';
+import ClaseEQA from '../../assets/modelos/ClaseEQA.avif';
+import ClaseEQB from '../../assets/modelos/ClaseEQB.avif';
+import ClaseEQESuv from '../../assets/modelos/ClaseEQESuv.avif';
+import ClaseCLAShootingBrake from '../../assets/modelos/ClaseSLAShootingBrake.avif';
+import ClaseCState from '../../assets/modelos/ClaseCState.avif';
+import ClaseACompacto from '../../assets/modelos/ClaseACompacto.avif';
+import ClaseBCompacto from '../../assets/modelos/ClaseBCompacto.avif';
 
 const modelos = [
   {
@@ -60,7 +67,7 @@ const modelos = [
     categoria: 'Berlina',
   },
   {
-    nombre: 'Clase C Berlina',
+    nombre: 'Clase E Berlina',
     etiquetas: ['Híbrido'],
     imagen: ClaseEBerlina,
     precio: 'Disponible próximamente',
@@ -68,7 +75,7 @@ const modelos = [
     categoria: 'Berlina',
   },
   {
-    nombre: 'Clase C Berlina',
+    nombre: 'Clase S',
     etiquetas: ['Híbrido'],
     imagen: ClaseS,
     precio: 'Disponible próximamente',
@@ -76,7 +83,7 @@ const modelos = [
     categoria: 'Berlina',
   },
   {
-    nombre: 'Clase C Berlina',
+    nombre: 'Clase S Larga',
     etiquetas: ['Híbrido'],
     imagen: ClaseSLarga,
     precio: 'Disponible próximamente',
@@ -84,28 +91,60 @@ const modelos = [
     categoria: 'Berlina',
   },
   {
-    nombre: 'Clase C Berlina',
+    nombre: 'Clase EQA',
     etiquetas: ['Híbrido'],
-    imagen: ClaseSLarga,
+    imagen: ClaseEQA,
     precio: 'Disponible próximamente',
     disponible: false,
     categoria: 'SUV',
   },
   {
-    nombre: 'Clase C Berlina',
+    nombre: 'Clase EQB',
     etiquetas: ['Híbrido'],
-    imagen: ClaseSLarga,
+    imagen: ClaseEQB,
     precio: 'Disponible próximamente',
     disponible: false,
     categoria: 'SUV',
   },
   {
-    nombre: 'Clase C Berlina',
+    nombre: 'Clase EQE Suv',
     etiquetas: ['Híbrido'],
-    imagen: ClaseSLarga,
+    imagen: ClaseEQESuv,
     precio: 'Disponible próximamente',
     disponible: false,
     categoria: 'SUV',
+  },
+  {
+    nombre: 'Clase CLA Shooting Brake',
+    etiquetas: ['Híbrido'],
+    imagen: ClaseCLAShootingBrake,
+    precio: 'Disponible próximamente',
+    disponible: false,
+    categoria: 'SUV',
+  },
+  {
+    nombre: 'Clase C State',
+    etiquetas: ['Híbrido'],
+    imagen: ClaseCState,
+    precio: 'Disponible próximamente',
+    disponible: false,
+    categoria: 'Estate',
+  },
+  {
+    nombre: 'Clase A Compacto',
+    etiquetas: ['Híbrido'],
+    imagen: ClaseACompacto,
+    precio: 'Disponible próximamente',
+    disponible: false,
+    categoria: 'Compacto',
+  },
+  {
+    nombre: 'Clase B Compacto',
+    etiquetas: ['Híbrido'],
+    imagen: ClaseBCompacto,
+    precio: 'Disponible próximamente',
+    disponible: false,
+    categoria: 'Compacto',
   },
   // Agrega más modelos si quieres
 ];
@@ -224,7 +263,7 @@ function Modelos() {
 
       <div className="modelos-grid">
         {modelos
-          .filter(modelo => modelo.categoria === 'Estate')
+          .filter(modelo => modelo.categoria === 'Compacto')
           .map((modelo, index) => (
             <div key={index} className="modelo-card">
               <h3>{modelo.nombre}</h3>
