@@ -3,6 +3,7 @@
 ## Configuración Inicial
 
 ### 1. Clonar el Repositorio
+
 ```bash
 git clone https://github.com/CBElmer28/hd-22016-grupo6-apf1.git
 cd hd-22016-grupo6-apf1.git
@@ -15,7 +16,6 @@ npm install
 ```
 
 Este comando instalará las dependencias del proyecto, incluyendo Husky, ESLint, Prettier, Lint-Staged, Commitlint y otros paquetes de desarrollo.
-
 
 ## Herramientas de Calidad de Código y Convenciones
 
@@ -31,6 +31,7 @@ Este proyecto utiliza varias herramientas de calidad de código que se ejecutan 
 ### Lint-Staged
 
 Lint-Staged verifica los archivos en staging:
+
 ```
 {
   "*.ts": ["prettier --write", "eslint"],
@@ -46,12 +47,12 @@ Lint-Staged verifica los archivos en staging:
 - **ESLint** se configura para forzar buenas prácticas de desarrollo en TypeScript y Angular.
 - **Prettier** se encarga de formatear el código automáticamente, siguiendo las reglas definidas en `.prettierrc`.
 
-
 ### Commitlint
 
 **Commitlint** asegura que todos los mensajes de commit sigan el formato establecido.
 
 #### Ejemplo de Mensaje de Commit
+
 Los mensajes de commit deben seguir el siguiente formato
 
 ```plaintext
