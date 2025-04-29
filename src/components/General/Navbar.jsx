@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import '../../css/Navbar.css';
 import logo from '../../assets/logo2.png';
 import { FaSearch, FaStar, FaUser, FaBars, FaTimes } from 'react-icons/fa';
@@ -24,6 +25,12 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
+  // Estilo activo para NavLink
+  const activeStyle = {
+    color: '#0072c8',
+    fontWeight: '600',
+  };
+
   return (
     <>
       <nav className="navbar">
@@ -38,31 +45,59 @@ const Navbar = () => {
           {/* Items normales en desktop */}
           {!isMobile && (
             <>
-              <a href="#">Modelos</a>
-              <a href="#">Comprar</a>
-              <a href="#">Servicios</a>
-              <a href="#">Marca</a>
+              <NavLink to="/modelos" style={({ isActive }) => (isActive ? activeStyle : undefined)}>
+                Modelos
+              </NavLink>
+              <NavLink to="/comprar" style={({ isActive }) => (isActive ? activeStyle : undefined)}>
+                Comprar
+              </NavLink>
+              <NavLink
+                to="/servicios"
+                style={({ isActive }) => (isActive ? activeStyle : undefined)}
+              >
+                Servicios
+              </NavLink>
+              <NavLink to="/marca" style={({ isActive }) => (isActive ? activeStyle : undefined)}>
+                Marca
+              </NavLink>
             </>
           )}
         </div>
 
         {/* Logo centrado */}
         <div className="navbar-center">
-          <img src={logo} alt="Zentauri Quead Logo" className="navbar-logo" />
+          <NavLink to="/">
+            <img src={logo} alt="Zentauri Quead Logo" className="navbar-logo" />
+          </NavLink>
         </div>
 
         {/* Parte derecha - Iconos y login */}
         <div className="navbar-right">
           {!isMobile && (
-            <a href="#" style={{ color: 'white', textDecoration: 'none' }}>
+            <NavLink
+              to="/proveedor"
+              style={({ isActive }) => ({
+                color: 'white',
+                textDecoration: 'none',
+                ...(isActive && activeStyle),
+              })}
+            >
               Proveedor
-            </a>
+            </NavLink>
           )}
-          <FaSearch className="icon" />
-          <FaStar className="icon" />
-          <a href="#" className="login-link">
+          <NavLink to="/buscar" className="icon-link">
+            <FaSearch className="icon" />
+          </NavLink>
+          <NavLink to="/favoritos" className="icon-link">
+            <FaStar className="icon" />
+          </NavLink>
+          <NavLink
+            to="/login"
+            className="login-link"
+            style={({ isActive }) => (isActive ? activeStyle : undefined)}
+          >
             <FaUser className="icon" /> {!isMobile && 'Iniciar sesión'}
-          </a>
+          </NavLink>
         </div>
       </nav>
 
@@ -70,24 +105,48 @@ const Navbar = () => {
       {isMobile && (
         <div className={`mobile-menu ${isOpen ? 'open' : ''}`}>
           <div className="mobile-menu-content">
-            <a href="#" onClick={toggleMenu}>
+            <NavLink
+              to="/modelos"
+              onClick={toggleMenu}
+              className={({ isActive }) => (isActive ? 'mobile-link active' : 'mobile-link')}
+            >
               Modelos
-            </a>
-            <a href="#" onClick={toggleMenu}>
+            </NavLink>
+            <NavLink
+              to="/comprar"
+              onClick={toggleMenu}
+              className={({ isActive }) => (isActive ? 'mobile-link active' : 'mobile-link')}
+            >
               Comprar
-            </a>
-            <a href="#" onClick={toggleMenu}>
+            </NavLink>
+            <NavLink
+              to="/servicios"
+              onClick={toggleMenu}
+              className={({ isActive }) => (isActive ? 'mobile-link active' : 'mobile-link')}
+            >
               Servicios
-            </a>
-            <a href="#" onClick={toggleMenu}>
+            </NavLink>
+            <NavLink
+              to="/marca"
+              onClick={toggleMenu}
+              className={({ isActive }) => (isActive ? 'mobile-link active' : 'mobile-link')}
+            >
               Marca
-            </a>
-            <a href="#" onClick={toggleMenu}>
+            </NavLink>
+            <NavLink
+              to="/proveedor"
+              onClick={toggleMenu}
+              className={({ isActive }) => (isActive ? 'mobile-link active' : 'mobile-link')}
+            >
               Proveedor
-            </a>
+            </NavLink>
             <div className="mobile-icons">
-              <FaSearch className="icon" />
-              <FaStar className="icon" />
+              <NavLink to="/buscar" onClick={toggleMenu} className="icon-link">
+                <FaSearch className="icon" />
+              </NavLink>
+              <NavLink to="/favoritos" onClick={toggleMenu} className="icon-link">
+                <FaStar className="icon" />
+              </NavLink>
             </div>
           </div>
         </div>
