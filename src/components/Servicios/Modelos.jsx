@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Navbar from '../General/Navbar';
+import Footer from '../General/Footer';
 import '../../css/Modelos.css';
 import ClaseABerlina from '../../assets/modelos/ClaseABerlina.avif';
 import CLARojo from '../../assets/modelos/CLARojo.avif';
@@ -12,6 +14,8 @@ import ClaseSLarga from '../../assets/modelos/ClaseSLarga.avif';
 import ClaseEQA from '../../assets/modelos/ClaseEQA.avif';
 import ClaseEQB from '../../assets/modelos/ClaseEQB.avif';
 import ClaseEQESuv from '../../assets/modelos/ClaseEQESuv.avif';
+import ClaseEQSSuv from '../../assets/modelos/ClaseEQSSuv.avif';
+import ClaseGLA from '../../assets/modelos/ClaseGLA.avif';
 import ClaseCLAShootingBrake from '../../assets/modelos/ClaseSLAShootingBrake.avif';
 import ClaseCState from '../../assets/modelos/ClaseCState.avif';
 import ClaseACompacto from '../../assets/modelos/ClaseACompacto.avif';
@@ -93,7 +97,7 @@ const modelos = [
     etiquetas: ['Híbrido'],
     imagen: ClaseSLarga,
     precio: '118.172,47 € ',
-    disponible: false,
+    disponible: true,
     categoria: 'Berlina',
   },
   {
@@ -101,7 +105,7 @@ const modelos = [
     etiquetas: ['Eléctrico'],
     imagen: ClaseEQA,
     precio: '56.450,30 € ',
-    disponible: false,
+    disponible: true,
     categoria: 'SUV',
   },
   {
@@ -109,7 +113,7 @@ const modelos = [
     etiquetas: ['Eléctrico'],
     imagen: ClaseEQB,
     precio: '58.526,25 €',
-    disponible: false,
+    disponible: true,
     categoria: 'SUV',
   },
   {
@@ -117,7 +121,23 @@ const modelos = [
     etiquetas: ['Híbrido'],
     imagen: ClaseEQESuv,
     precio: '83.359,20 €',
-    disponible: false,
+    disponible: true,
+    categoria: 'SUV',
+  },
+  {
+    nombre: 'Clase EQS Suv',
+    etiquetas: ['Eléctrico'],
+    imagen: ClaseEQSSuv,
+    precio: '140.185,54 €',
+    disponible: true,
+    categoria: 'SUV',
+  },
+  {
+    nombre: 'Clase GLA',
+    etiquetas: ['Híbrido'],
+    imagen: ClaseGLA,
+    precio: '47.163,04 € ',
+    disponible: true,
     categoria: 'SUV',
   },
   {
@@ -218,25 +238,29 @@ function Modelos() {
       : true;
     return cumpleCarroceria && cumpleCombustible;
   });
-
   return (
-    <div className="modelos-container">
-      <h1 className="titulo">Nuestros modelos</h1>
-      <p className="descripcion">
-        Descubre nuestro diverso mundo de marcas y modelos: Aquí encontrarás tu vehículo deseado.
-      </p>
+    <div>
+      {/* Navbar */}
+      <Navbar />
+      <div className="modelos-container">
+        <h1 className="titulo">Nuestros modelos</h1>
+        <p className="descripcion">
+          Descubre nuestro diverso mundo de marcas y modelos: Aquí encontrarás tu vehículo deseado.
+        </p>
 
-      <div className="botones-marcas">
-        <button>Mercedes-Benz</button>
-        <button>AMG</button>
-        <button>Maybach</button>
-      </div>
-
-      <div className="filtros">
-        <div className="filtro-grupo">
-          <span>Carrocería:</span>
-          {['Todas', 'SUV', 'Berlina', 'Estate', 'Compacto', 'Coupé', 'Cabrio', 'Monovolumen'].map(
-            tipo => (
+        <div className="filtros">
+          <div className="filtro-grupo">
+            <span>Carrocería:</span>
+            {[
+              'Todas',
+              'SUV',
+              'Berlina',
+              'Estate',
+              'Compacto',
+              'Coupé',
+              'Cabrio',
+              'Monovolumen',
+            ].map(tipo => (
               <button
                 key={tipo}
                 className={
@@ -248,74 +272,76 @@ function Modelos() {
               >
                 {tipo}
               </button>
-            )
-          )}
-        </div>
-
-        <div className="filtro-grupo">
-          <span>Combustible:</span>
-          {['Todos', 'Eléctrico', 'Híbrido'].map(tipo => (
-            <button
-              key={tipo}
-              className={
-                combustibleFiltro === tipo || (tipo === 'Todos' && combustibleFiltro === '')
-                  ? 'filtro-activo'
-                  : ''
-              }
-              onClick={() => setCombustibleFiltro(tipo === 'Todos' ? '' : tipo)}
-            >
-              {tipo}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Mostrar modelos agrupados por categoría */}
-      {categorias.map(categoria => {
-        // Filtrar modelos de esta categoría
-        const modelosCategoria = modelosFiltrados.filter(m => m.categoria === categoria);
-
-        // Si no hay modelos en esta categoría después de aplicar filtros, no renderizar
-        if (modelosCategoria.length === 0) return null;
-
-        return (
-          <div key={categoria}>
-            <h2 className="subtitulo">{categoria}</h2>
-            <div className="modelos-grid">
-              {modelosCategoria.map((modelo, index) => (
-                <div key={index} className="modelo-card">
-                  <h3>{modelo.nombre}</h3>
-
-                  <div className="etiquetas">
-                    {modelo.etiquetas.map((etiqueta, i) => (
-                      <span key={i} className={`etiqueta ${etiqueta.toLowerCase()}`}>
-                        {etiqueta}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="imagen-container">
-                    <img src={modelo.imagen} alt={modelo.nombre} className="modelo-imagen" />
-                    <div className="overlay">
-                      <button className="btn-info">Más información</button>
-                    </div>
-                  </div>
-
-                  <p className="precio">
-                    {modelo.disponible ? (
-                      <>
-                        <span>Desde</span> <strong>{modelo.precio}</strong>
-                      </>
-                    ) : (
-                      modelo.precio
-                    )}
-                  </p>
-                </div>
-              ))}
-            </div>
+            ))}
           </div>
-        );
-      })}
+
+          <div className="filtro-grupo">
+            <span>Combustible:</span>
+            {['Todos', 'Eléctrico', 'Híbrido'].map(tipo => (
+              <button
+                key={tipo}
+                className={
+                  combustibleFiltro === tipo || (tipo === 'Todos' && combustibleFiltro === '')
+                    ? 'filtro-activo'
+                    : ''
+                }
+                onClick={() => setCombustibleFiltro(tipo === 'Todos' ? '' : tipo)}
+              >
+                {tipo}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Mostrar modelos agrupados por categoría */}
+        {categorias.map(categoria => {
+          // Filtrar modelos de esta categoría
+          const modelosCategoria = modelosFiltrados.filter(m => m.categoria === categoria);
+
+          // Si no hay modelos en esta categoría después de aplicar filtros, no renderizar
+          if (modelosCategoria.length === 0) return null;
+
+          return (
+            <div key={categoria}>
+              <h2 className="subtitulo">{categoria}</h2>
+              <div className="modelos-grid">
+                {modelosCategoria.map((modelo, index) => (
+                  <div key={index} className="modelo-card">
+                    <h3>{modelo.nombre}</h3>
+
+                    <div className="etiquetas">
+                      {modelo.etiquetas.map((etiqueta, i) => (
+                        <span key={i} className={`etiqueta ${etiqueta.toLowerCase()}`}>
+                          {etiqueta}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="imagen-container">
+                      <img src={modelo.imagen} alt={modelo.nombre} className="modelo-imagen" />
+                      <div className="overlay">
+                        <button className="btn-info">Más información</button>
+                      </div>
+                    </div>
+
+                    <p className="precio">
+                      {modelo.disponible ? (
+                        <>
+                          <span>Desde</span> <strong>{modelo.precio}</strong>
+                        </>
+                      ) : (
+                        modelo.precio
+                      )}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

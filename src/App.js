@@ -3,7 +3,7 @@ import Home from './components/Servicios/PrincipalServicio';
 import Modelos from './components/Servicios/Modelos';
 import Servicios from './components/Servicios/PrincipalServicio';
 import CompraServicios from './components/Servicios/CompraServicios';
-// import Marca from './components/Servicios/Marca'; // Necesitarás crear este componente
+import Marca from './components/Servicios/SobreNosotros';
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
         <Route path="/modelos" element={<Modelos />} />
         <Route path="/servicios" element={<Servicios />} />
         <Route path="/comprar" element={<CompraServicios />} />
-        {/* <Route path="/marca" element={<Marca />} />  */}
+        <Route path="/marca" element={<Marca />} />
       </Routes>
     </Router>
   );

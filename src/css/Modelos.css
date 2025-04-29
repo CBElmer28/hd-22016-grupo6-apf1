@@ -4,6 +4,7 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f9f9fb;
   color: #222;
+  padding-top: 100px;
 }
 
 .titulo {
@@ -12,6 +13,14 @@
   font-weight: 700;
   letter-spacing: 1px;
 }
+
+.subtitulo:hover,
+.titulo:hover {
+  color: #00c9ff;
+  transform: scale(1.02);
+  transition: all 0.3s ease;
+}
+
 
 .descripcion {
   color: #666;
@@ -64,7 +73,29 @@
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: aparecer 1.5s ease forwards;
+}
+.modelo-card:nth-child(1) { animation-delay: 0.1s; }
+.modelo-card:nth-child(2) { animation-delay: 0.2s; }
+.modelo-card:nth-child(3) { animation-delay: 0.3s; }
+.modelo-card:nth-child(4) { animation-delay: 0.4s; }
+.modelo-card:nth-child(5) { animation-delay: 0.5s; }
+.modelo-card:nth-child(6) { animation-delay: 0.6s; }
+.modelo-card:nth-child(7) { animation-delay: 0.7s; }
+.modelo-card:nth-child(8) { animation-delay: 0.8s; }
+.modelo-card:nth-child(9) { animation-delay: 0.9s; }
+
+
+@keyframes aparecer {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .modelo-card:hover {
@@ -80,9 +111,11 @@
   transition: filter 0.3s ease;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 .modelo-card:hover .modelo-imagen {
   filter: brightness(0.5);
+  transform: scale(1.05);
 }
 
 .modelo-card:hover .overlay {
@@ -119,7 +152,9 @@
   font-weight: bold;
   cursor: pointer;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .overlay button:hover {
@@ -148,6 +183,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  transition: all 0.3s ease-in-out;
 }
 
 .etiqueta.nuevo {
@@ -165,11 +201,17 @@
   color: #000;
 }
 
+.etiqueta:hover {
+  filter: brightness(1.1);
+  transform: scale(1.05);
+}
+
 .precio {
   margin-top: 1rem;
   font-size: 1.1rem;
   color: #000;
   font-weight: bold;
+  transition: all 0.3s ease-in-out;
 }
 
 .filtros {
@@ -225,4 +267,8 @@
   background: #000;
   color: #fff;
   border-color: #000;
+}
+
+.overlay button:active {
+  transform: scale(0.95);
 }
