@@ -111,6 +111,28 @@
 /* Responsive */
 @media (max-width: 768px) {
   .premium-vehicles-container {
+    padding: 3rem;
+  }
+
+  .models-table {
+    font-size: 0.9rem;
+  }
+
+  .models-table th,
+  .models-table td {
+    padding: 8px 10px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .imagen-fondo {
+    left: -4rem; /* Mueve la imagen a la izquierda solo en móviles */
+  }
+}
+
+@media (max-width: 1396px) {
+  .premium-vehicles-container {
     padding: 1rem;
   }
 

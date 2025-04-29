@@ -13,7 +13,7 @@ const MercedesSearchForm = () => {
         {/* Sección Promocional con texto superpuesto directamente sobre la imagen */}
         <Card
           className="mb-4 border-0 p-0 overflow-hidden"
-          style={{ height: '700px', position: 'relative', left: '-17.5rem', width: '100vw' }}
+          style={{ height: '700px', position: 'relative', width: '100vw', left: '-15vw' }}
         >
           {/* Imagen de fondo */}
           <Image
@@ -102,34 +102,56 @@ const MercedesSearchForm = () => {
                     </Form.Label>
                     <InputGroup>
                       <Form.Select>
-                        <option>Cualquiera</option>
+                        <option value="">Cualquiera</option>
+                        <option value="A-Class">Mercedes-Benz A-Class</option>
+                        <option value="B-Class">Mercedes-Benz B-Class</option>
+                        <option value="C-Class">Mercedes-Benz C-Class</option>
+                        <option value="E-Class">Mercedes-Benz E-Class</option>
+                        <option value="S-Class">Mercedes-Benz S-Class</option>
+                        <option value="GLA">Mercedes-Benz GLA</option>
+                        <option value="GLC">Mercedes-Benz GLC</option>
+                        <option value="GLE">Mercedes-Benz GLE</option>
+                        <option value="GLS">Mercedes-Benz GLS</option>
+                        <option value="G-Class">Mercedes-Benz G-Class</option>
+                        <option value="EQB">Mercedes-Benz EQB</option>
+                        <option value="EQC">Mercedes-Benz EQC</option>
                       </Form.Select>
                     </InputGroup>
                   </Form.Group>
-
                   <Form.Group className="mb-3">
                     <Form.Label>
                       <strong>Carrocería</strong>
                     </Form.Label>
                     <InputGroup>
                       <Form.Select>
-                        <option>Cualquiera</option>
+                        <option value="">Cualquiera</option>
+                        <option value="sedan">Sedán</option>
+                        <option value="hatchback">Hatchback</option>
+                        <option value="suv">SUV</option>
+                        <option value="pickup">Pickup</option>
+                        <option value="coupe">Coupé</option>
+                        <option value="convertible">Convertible</option>
+                        <option value="furgoneta">Furgoneta</option>
                       </Form.Select>
                     </InputGroup>
                   </Form.Group>
-
                   <Form.Group className="mb-3">
                     <Form.Label>
                       <strong>Kilometraje</strong>
                     </Form.Label>
                     <InputGroup>
                       <Form.Select>
-                        <option>Cualquiera km</option>
+                        <option value="">Cualquiera km</option>
+                        <option value="5000">Hasta 5,000 km</option>
+                        <option value="10000">Hasta 10,000 km</option>
+                        <option value="20000">Hasta 20,000 km</option>
+                        <option value="50000">Hasta 50,000 km</option>
+                        <option value="100000">Hasta 100,000 km</option>
+                        <option value="mas">Más de 100,000 km</option>
                       </Form.Select>
                     </InputGroup>
                   </Form.Group>
                 </Col>
-
                 <Col md={6}>
                   <Form.Group className="mb-3">
                     <Form.Label>
@@ -137,29 +159,42 @@ const MercedesSearchForm = () => {
                     </Form.Label>
                     <InputGroup>
                       <Form.Select>
-                        <option>Cualquiera</option>
+                        <option value="">Cualquiera</option>
+                        <option value="gasolina">Gasolina</option>
+                        <option value="diesel">Diésel</option>
+                        <option value="hibrido">Híbrido</option>
+                        <option value="electrico">Eléctrico</option>
                       </Form.Select>
                     </InputGroup>
                   </Form.Group>
-
                   <Form.Group className="mb-3">
                     <Form.Label>
                       <strong>Fecha de matriculación</strong>
                     </Form.Label>
                     <InputGroup>
                       <Form.Select>
-                        <option>Cualquiera</option>
+                        <option value="">Cualquiera</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>
                       </Form.Select>
                     </InputGroup>
                   </Form.Group>
-
                   <Form.Group className="mb-3">
                     <Form.Label>
                       <strong>Precio</strong>
                     </Form.Label>
                     <InputGroup>
                       <Form.Select>
-                        <option>Cualquiera €</option>
+                        <option value="">Cualquiera $</option>
+                        <option value="10000">$10,000</option>
+                        <option value="20000">$20,000</option>
+                        <option value="30000">$30,000</option>
+                        <option value="50000">$50,000</option>
+                        <option value="100000">$100,000</option>
+                        <option value="200000">$200,000</option>
                       </Form.Select>
                     </InputGroup>
                   </Form.Group>
@@ -174,7 +209,12 @@ const MercedesSearchForm = () => {
                 </Form.Label>
                 <InputGroup>
                   <Form.Select>
-                    <option>Cualquiera</option>
+                    <option value="">Cualquiera</option>
+                    <option value="Lima">Lima</option>
+                    <option value="Arequipa">Arequipa</option>
+                    <option value="Cusco">Cusco</option>
+                    <option value="Trujillo">Trujillo</option>
+                    <option value="Piura">Piura</option>
                   </Form.Select>
                 </InputGroup>
               </Form.Group>
@@ -185,11 +225,14 @@ const MercedesSearchForm = () => {
                 </Form.Label>
                 <InputGroup>
                   <Form.Select>
-                    <option>Cualquiera</option>
+                    <option value="">Cualquiera</option>
+                    <option value="50km">50 km</option>
+                    <option value="100km">100 km</option>
+                    <option value="200km">200 km</option>
+                    <option value="500km">500 km</option>
                   </Form.Select>
                 </InputGroup>
               </Form.Group>
-
               <div className="mt-auto d-flex flex-column gap-2">
                 <Button variant="outline-primary" className="w-100">
                   Búsqueda detallada

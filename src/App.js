@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/Servicios/PrincipalServicio';
 import Modelos from './components/Servicios/Modelos';
 import Servicios from './components/Servicios/PrincipalServicio';
-import CompraServicios from './components/Servicios/CompraServicios';
+import CompraServicios from './components/Servicios/CompraServicio';
 // import Marca from './components/Servicios/Marca'; // Necesitarás crear este componente
 
 function App() {
