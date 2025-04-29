@@ -2,11 +2,13 @@ import React from 'react';
 import { Container, Card, Form, Row, Col, InputGroup, Button, Image } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import modelocompra from '../../assets/modelocompra.jpg';
+import Navbar from '../General/Navbar';
 import Footer from '../General/Footer';
 
 const MercedesSearchForm = () => {
   return (
     <>
+      <Navbar />
       <Container className="px-0 my-0">
         {/* Sección Promocional con texto superpuesto directamente sobre la imagen */}
         <Card
