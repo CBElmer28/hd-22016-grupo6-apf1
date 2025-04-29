@@ -4,8 +4,8 @@
 
 ### 1. Clonar el Repositorio
 ```bash
-git clone https://github.com/TheJose24/TechVision-App.git
-cd TechVision-App
+git clone https://github.com/CBElmer28/hd-22016-grupo6-apf1.git
+cd hd-22016-grupo6-apf1.git
 ```
 
 ### 2. Instalar Dependencias
