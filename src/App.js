@@ -1,12 +1,21 @@
-import React from 'react';
-import Modelos from './components/Servicios/Modelos.jsx'; // Asegúrate de que esté la ruta correcta
-import './css/Modelos.css';
-import Nosotros from './components/Servicios/SobreNosotros.jsx';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './components/Servicios/PrincipalServicio';
+import Modelos from './components/Servicios/Modelos';
+import Servicios from './components/Servicios/PrincipalServicio';
+import CompraServicios from './components/Servicios/CompraServicios';
+// import Marca from './components/Servicios/Marca'; // Necesitarás crear este componente
+
 function App() {
   return (
-    <div>
-      <Nosotros />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/modelos" element={<Modelos />} />
+        <Route path="/servicios" element={<Servicios />} />
+        <Route path="/comprar" element={<CompraServicios />} />
+        {/* <Route path="/marca" element={<Marca />} />  */}
+      </Routes>
+    </Router>
   );
 }
 
