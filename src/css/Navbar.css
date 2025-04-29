@@ -13,8 +13,7 @@
   box-sizing: border-box;
 }
 
-.navbar-left,
-.navbar-right {
+.navbar-left, .navbar-right {
   display: flex;
   align-items: center;
   flex: 1;
@@ -134,25 +133,45 @@
   margin-top: 10px;
 }
 
+.icon-button {
+  background: none;
+  border: none;
+  padding: 0;
+  color: white; /* o el color que quieras para los íconos */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.icon-button .icon {
+  font-size: 20px; /* o el tamaño que quieras */
+}
+
+
+
+
+
+
 /* Responsive */
 @media (max-width: 768px) {
   .navbar {
     padding: 15px 20px;
     height: 70px;
   }
-
+  
   .navbar-logo {
     height: 50px;
   }
-
+  
   .hamburger {
     display: block;
   }
-
+  
   .mobile-menu {
     top: 70px;
   }
-
+  
   .login-link span {
     display: none;
   }
@@ -162,11 +181,11 @@
   .navbar {
     padding: 10px 15px;
   }
-
+  
   .navbar-logo {
     height: 45px;
   }
-
+  
   .icon {
     margin: 0 8px;
     font-size: 16px;
