@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../css/Modelos.css';
 import ClaseABerlina from '../../assets/modelos/ClaseABerlina.avif';
 import CLARojo from '../../assets/modelos/CLARojo.avif';
@@ -16,6 +16,12 @@ import ClaseCLAShootingBrake from '../../assets/modelos/ClaseSLAShootingBrake.av
 import ClaseCState from '../../assets/modelos/ClaseCState.avif';
 import ClaseACompacto from '../../assets/modelos/ClaseACompacto.avif';
 import ClaseBCompacto from '../../assets/modelos/ClaseBCompacto.avif';
+import ClaseCLACoupé from '../../assets/modelos/ClaseCLACoupé.avif';
+import ClaseCLECoupé from '../../assets/modelos/ClaseCLECoupé.avif';
+import ClaseCLECabrio from '../../assets/modelos/ClaseCLECabrio.avif';
+import ClaseEQT from '../../assets/modelos/ClaseEQT.avif';
+import ClaseEQV from '../../assets/modelos/ClaseEQV.avif';
+import ClaseT from '../../assets/modelos/ClaseT.avif';
 
 const modelos = [
   {
@@ -46,23 +52,23 @@ const modelos = [
     nombre: 'Clase C Berlina',
     etiquetas: ['Híbrido'],
     imagen: ClaseCBerlina,
-    precio: 'Disponible próximamente',
-    disponible: false,
+    precio: '50.573,35 € ',
+    disponible: true,
     categoria: 'Berlina',
   },
   {
     nombre: 'Clase EQE Berlina',
     etiquetas: ['Eléctrico'],
     imagen: ClaseEQEBerlina,
-    precio: 'Disponible próximamente',
-    disponible: false,
+    precio: '72.814,96 €',
+    disponible: true,
     categoria: 'Berlina',
   },
   {
     nombre: 'Clase EQS Berlina',
     etiquetas: ['Eléctrico'],
     imagen: ClaseEQSBerlina,
-    precio: 'Disponible próximamente',
+    precio: '105.144,20 €',
     disponible: false,
     categoria: 'Berlina',
   },
@@ -70,7 +76,7 @@ const modelos = [
     nombre: 'Clase E Berlina',
     etiquetas: ['Híbrido'],
     imagen: ClaseEBerlina,
-    precio: 'Disponible próximamente',
+    precio: '65.291,16 €',
     disponible: false,
     categoria: 'Berlina',
   },
@@ -78,7 +84,7 @@ const modelos = [
     nombre: 'Clase S',
     etiquetas: ['Híbrido'],
     imagen: ClaseS,
-    precio: 'Disponible próximamente',
+    precio: '116.253,53 € ',
     disponible: false,
     categoria: 'Berlina',
   },
@@ -86,23 +92,23 @@ const modelos = [
     nombre: 'Clase S Larga',
     etiquetas: ['Híbrido'],
     imagen: ClaseSLarga,
-    precio: 'Disponible próximamente',
+    precio: '118.172,47 € ',
     disponible: false,
     categoria: 'Berlina',
   },
   {
     nombre: 'Clase EQA',
-    etiquetas: ['Híbrido'],
+    etiquetas: ['Eléctrico'],
     imagen: ClaseEQA,
-    precio: 'Disponible próximamente',
+    precio: '56.450,30 € ',
     disponible: false,
     categoria: 'SUV',
   },
   {
     nombre: 'Clase EQB',
-    etiquetas: ['Híbrido'],
+    etiquetas: ['Eléctrico'],
     imagen: ClaseEQB,
-    precio: 'Disponible próximamente',
+    precio: '58.526,25 €',
     disponible: false,
     categoria: 'SUV',
   },
@@ -110,7 +116,7 @@ const modelos = [
     nombre: 'Clase EQE Suv',
     etiquetas: ['Híbrido'],
     imagen: ClaseEQESuv,
-    precio: 'Disponible próximamente',
+    precio: '83.359,20 €',
     disponible: false,
     categoria: 'SUV',
   },
@@ -118,15 +124,15 @@ const modelos = [
     nombre: 'Clase CLA Shooting Brake',
     etiquetas: ['Híbrido'],
     imagen: ClaseCLAShootingBrake,
-    precio: 'Disponible próximamente',
+    precio: '45.054,07 €',
     disponible: false,
-    categoria: 'SUV',
+    categoria: 'Estate',
   },
   {
     nombre: 'Clase C State',
     etiquetas: ['Híbrido'],
     imagen: ClaseCState,
-    precio: 'Disponible próximamente',
+    precio: '54.269,62 €',
     disponible: false,
     categoria: 'Estate',
   },
@@ -134,7 +140,7 @@ const modelos = [
     nombre: 'Clase A Compacto',
     etiquetas: ['Híbrido'],
     imagen: ClaseACompacto,
-    precio: 'Disponible próximamente',
+    precio: '38.939,37 €',
     disponible: false,
     categoria: 'Compacto',
   },
@@ -142,14 +148,77 @@ const modelos = [
     nombre: 'Clase B Compacto',
     etiquetas: ['Híbrido'],
     imagen: ClaseBCompacto,
-    precio: 'Disponible próximamente',
+    precio: '42.778,64 €',
     disponible: false,
     categoria: 'Compacto',
+  },
+  {
+    nombre: 'Clase CLA Coupé',
+    etiquetas: ['Híbrido'],
+    imagen: ClaseCLACoupé, // sin comillas
+    precio: '43.733,27 €',
+    disponible: true,
+    categoria: 'Coupé',
+  },
+  {
+    nombre: 'Clase CLE Coupé',
+    etiquetas: ['Híbrido'],
+    imagen: ClaseCLECoupé,
+    precio: '61.670,37 €',
+    disponible: false,
+    categoria: 'Coupé',
+  },
+  {
+    nombre: 'Clase CLE Cabrio',
+    etiquetas: ['Híbrido'],
+    imagen: ClaseCLECabrio,
+    precio: '69.830,69 €',
+    disponible: false,
+    categoria: 'Cabrio',
+  },
+  {
+    nombre: 'Clase EQT',
+    etiquetas: ['Eléctrico'],
+    imagen: ClaseEQT,
+    precio: '50.746,19 €',
+    disponible: false,
+    categoria: 'Monovolumen',
+  },
+  {
+    nombre: 'Clase EQV',
+    etiquetas: ['Eléctrico'],
+    imagen: ClaseEQV,
+    precio: '88.348,32 € ',
+    disponible: false,
+    categoria: 'Monovolumen',
+  },
+  {
+    nombre: 'Clase T',
+    etiquetas: ['Híbrido'],
+    imagen: ClaseT,
+    precio: '32.749,86 €',
+    disponible: false,
+    categoria: 'Monovolumen',
   },
   // Agrega más modelos si quieres
 ];
 
 function Modelos() {
+  const [carroceriaFiltro, setCarroceriaFiltro] = useState('');
+  const [combustibleFiltro, setCombustibleFiltro] = useState('');
+
+  // Sacar las categorías únicas automáticamente
+  const categorias = [...new Set(modelos.map(m => m.categoria))];
+
+  // Aplicar filtros
+  const modelosFiltrados = modelos.filter(modelo => {
+    const cumpleCarroceria = carroceriaFiltro ? modelo.categoria === carroceriaFiltro : true;
+    const cumpleCombustible = combustibleFiltro
+      ? modelo.etiquetas.includes(combustibleFiltro)
+      : true;
+    return cumpleCarroceria && cumpleCombustible;
+  });
+
   return (
     <div className="modelos-container">
       <h1 className="titulo">Nuestros modelos</h1>
@@ -163,165 +232,90 @@ function Modelos() {
         <button>Maybach</button>
       </div>
 
-      <h2 className="subtitulo">Berlina</h2>
+      <div className="filtros">
+        <div className="filtro-grupo">
+          <span>Carrocería:</span>
+          {['Todas', 'SUV', 'Berlina', 'Estate', 'Compacto', 'Coupé', 'Cabrio', 'Monovolumen'].map(
+            tipo => (
+              <button
+                key={tipo}
+                className={
+                  carroceriaFiltro === tipo || (tipo === 'Todas' && carroceriaFiltro === '')
+                    ? 'filtro-activo'
+                    : ''
+                }
+                onClick={() => setCarroceriaFiltro(tipo === 'Todas' ? '' : tipo)}
+              >
+                {tipo}
+              </button>
+            )
+          )}
+        </div>
 
-      <div className="modelos-grid">
-        {modelos
-          .filter(modelo => modelo.categoria === 'Berlina')
-          .map((modelo, index) => (
-            <div key={index} className="modelo-card">
-              <h3>{modelo.nombre}</h3>
-
-              <div className="etiquetas">
-                {modelo.etiquetas.map((etiqueta, i) => (
-                  <span key={i} className={`etiqueta ${etiqueta.toLowerCase()}`}>
-                    {etiqueta}
-                  </span>
-                ))}
-              </div>
-
-              <img src={modelo.imagen} alt={modelo.nombre} className="modelo-imagen" />
-
-              <p className="precio">
-                {modelo.disponible ? (
-                  <>
-                    <span>Desde</span> <strong>{modelo.precio}</strong>
-                  </>
-                ) : (
-                  modelo.precio
-                )}
-              </p>
-            </div>
+        <div className="filtro-grupo">
+          <span>Combustible:</span>
+          {['Todos', 'Eléctrico', 'Híbrido'].map(tipo => (
+            <button
+              key={tipo}
+              className={
+                combustibleFiltro === tipo || (tipo === 'Todos' && combustibleFiltro === '')
+                  ? 'filtro-activo'
+                  : ''
+              }
+              onClick={() => setCombustibleFiltro(tipo === 'Todos' ? '' : tipo)}
+            >
+              {tipo}
+            </button>
           ))}
+        </div>
       </div>
 
-      <h2 className="subtitulo">SUV & Todoterreno</h2>
+      {/* Mostrar modelos agrupados por categoría */}
+      {categorias.map(categoria => {
+        // Filtrar modelos de esta categoría
+        const modelosCategoria = modelosFiltrados.filter(m => m.categoria === categoria);
 
-      <div className="modelos-grid">
-        {modelos
-          .filter(modelo => modelo.categoria === 'SUV')
-          .map((modelo, index) => (
-            <div key={index} className="modelo-card">
-              <h3>{modelo.nombre}</h3>
+        // Si no hay modelos en esta categoría después de aplicar filtros, no renderizar
+        if (modelosCategoria.length === 0) return null;
 
-              <div className="etiquetas">
-                {modelo.etiquetas.map((etiqueta, i) => (
-                  <span key={i} className={`etiqueta ${etiqueta.toLowerCase()}`}>
-                    {etiqueta}
-                  </span>
-                ))}
-              </div>
+        return (
+          <div key={categoria}>
+            <h2 className="subtitulo">{categoria}</h2>
+            <div className="modelos-grid">
+              {modelosCategoria.map((modelo, index) => (
+                <div key={index} className="modelo-card">
+                  <h3>{modelo.nombre}</h3>
 
-              <img src={modelo.imagen} alt={modelo.nombre} className="modelo-imagen" />
+                  <div className="etiquetas">
+                    {modelo.etiquetas.map((etiqueta, i) => (
+                      <span key={i} className={`etiqueta ${etiqueta.toLowerCase()}`}>
+                        {etiqueta}
+                      </span>
+                    ))}
+                  </div>
 
-              <p className="precio">
-                {modelo.disponible ? (
-                  <>
-                    <span>Desde</span> <strong>{modelo.precio}</strong>
-                  </>
-                ) : (
-                  modelo.precio
-                )}
-              </p>
+                  <div className="imagen-container">
+                    <img src={modelo.imagen} alt={modelo.nombre} className="modelo-imagen" />
+                    <div className="overlay">
+                      <button className="btn-info">Más información</button>
+                    </div>
+                  </div>
+
+                  <p className="precio">
+                    {modelo.disponible ? (
+                      <>
+                        <span>Desde</span> <strong>{modelo.precio}</strong>
+                      </>
+                    ) : (
+                      modelo.precio
+                    )}
+                  </p>
+                </div>
+              ))}
             </div>
-          ))}
-      </div>
-
-      <h2 className="subtitulo">Estate</h2>
-
-      <div className="modelos-grid">
-        {modelos
-          .filter(modelo => modelo.categoria === 'Estate')
-          .map((modelo, index) => (
-            <div key={index} className="modelo-card">
-              <h3>{modelo.nombre}</h3>
-
-              <div className="etiquetas">
-                {modelo.etiquetas.map((etiqueta, i) => (
-                  <span key={i} className={`etiqueta ${etiqueta.toLowerCase()}`}>
-                    {etiqueta}
-                  </span>
-                ))}
-              </div>
-
-              <img src={modelo.imagen} alt={modelo.nombre} className="modelo-imagen" />
-
-              <p className="precio">
-                {modelo.disponible ? (
-                  <>
-                    <span>Desde</span> <strong>{modelo.precio}</strong>
-                  </>
-                ) : (
-                  modelo.precio
-                )}
-              </p>
-            </div>
-          ))}
-      </div>
-
-      <h2 className="subtitulo">Compacto</h2>
-
-      <div className="modelos-grid">
-        {modelos
-          .filter(modelo => modelo.categoria === 'Compacto')
-          .map((modelo, index) => (
-            <div key={index} className="modelo-card">
-              <h3>{modelo.nombre}</h3>
-
-              <div className="etiquetas">
-                {modelo.etiquetas.map((etiqueta, i) => (
-                  <span key={i} className={`etiqueta ${etiqueta.toLowerCase()}`}>
-                    {etiqueta}
-                  </span>
-                ))}
-              </div>
-
-              <img src={modelo.imagen} alt={modelo.nombre} className="modelo-imagen" />
-
-              <p className="precio">
-                {modelo.disponible ? (
-                  <>
-                    <span>Desde</span> <strong>{modelo.precio}</strong>
-                  </>
-                ) : (
-                  modelo.precio
-                )}
-              </p>
-            </div>
-          ))}
-      </div>
-
-      <h2 className="subtitulo">Coupé</h2>
-
-      <div className="modelos-grid">
-        {modelos
-          .filter(modelo => modelo.categoria === 'Coupé')
-          .map((modelo, index) => (
-            <div key={index} className="modelo-card">
-              <h3>{modelo.nombre}</h3>
-
-              <div className="etiquetas">
-                {modelo.etiquetas.map((etiqueta, i) => (
-                  <span key={i} className={`etiqueta ${etiqueta.toLowerCase()}`}>
-                    {etiqueta}
-                  </span>
-                ))}
-              </div>
-
-              <img src={modelo.imagen} alt={modelo.nombre} className="modelo-imagen" />
-
-              <p className="precio">
-                {modelo.disponible ? (
-                  <>
-                    <span>Desde</span> <strong>{modelo.precio}</strong>
-                  </>
-                ) : (
-                  modelo.precio
-                )}
-              </p>
-            </div>
-          ))}
-      </div>
+          </div>
+        );
+      })}
     </div>
   );
 }
